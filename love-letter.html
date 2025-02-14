@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text x='0' y='24' font-size='24'>💌</text></svg>"
+        type="image/svg+xml">
+    <title>チンタシャファオクビアナへのラブレター</title>
+    <script src="https://cdn.jsdelivr.net/npm/@heroicons/react@1.0.6/outline/index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        /* Animasi Berputar untuk Ikon Melodi */
+        .animate-spin-slow {
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Animasi Mengambang untuk Sakura */
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+
+        .fade-in-btn {
+            opacity: 0;
+            animation: fadeIn 100s forwards;
+        }
+
+        .fade-in:nth-child(1) {
+            animation-delay: 1s;
+        }
+
+        .fade-in:nth-child(2) {
+            animation-delay: 3s;
+        }
+
+        .fade-in:nth-child(3) {
+            animation-delay: 5s;
+        }
+
+        .fade-in:nth-child(4) {
+            animation-delay: 7s;
+        }
+
+        .fade-in:nth-child(5) {
+            animation-delay: 8s;
+        }
+
+        .fade-in:nth-child(6) {
+            animation-delay: 10s;
+        }
+
+        .fade-in:nth-child(7) {
+            animation-delay: 12s;
+        }
+
+        .fade-in:nth-child(8) {
+            animation-delay: 14s;
+        }
+
+        .fade-in:nth-child(9) {
+            animation-delay: 16s;
+        }
+
+        .fade-in:nth-child(10) {
+            animation-delay: 18s;
+        }
+
+        .slide-in {
+            transform: translateX(-10px);
+            opacity: 0;
+            animation: slideIn 12s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .animate-float {
+            animation: float 4s infinite ease-in-out alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+
+            100% {
+                transform: translateY(20px) rotate(10deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="relative w-full max-w-md p-6 bg-white shadow-lg rounded-lg letter">
+        <div
+            class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-pink-400 to-purple-400 rounded-t-lg">
+        </div>
+
+        <div
+            class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 sm:space-x-4 p-4 bg-gray-50 rounded-lg shadow-md">
+            <label for="language" class="text-lg font-semibold text-gray-700 flex items-center space-x-2">
+                <span>Pilih Bahasa:</span>
+                <span class="text-gray-500">(Choose Language)</span>
+            </label>
+            <select id="language"
+                class="w-full sm:w-auto p-2 bg-white border-2 border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 text-sm hover:border-blue-400 transition-all duration-200 ease-in-out"
+                onchange="if(this.value == 'id') window.location.reload();">
+                <option value="su" class="flex items-center space-x-2 hover:bg-blue-50 transition-all duration-200">
+                    <span class="text-lg">🇮🇩</span><span class="font-medium">Sunda</span>
+                </option>
+                <option value="en" class="flex items-center space-x-2 hover:bg-blue-50 transition-all duration-200">
+                    <span class="text-lg">🇬🇧</span><span class="font-medium">English</span>
+                </option>
+                <option value="jp" class="flex items-center space-x-2 hover:bg-blue-50 transition-all duration-200">
+                    <span class="text-lg">🇯🇵</span><span class="font-medium">日本語 (Japanese)</span>
+                </option>
+                <option value="ko" class="flex items-center space-x-2 hover:bg-blue-50 transition-all duration-200">
+                    <span class="text-lg">🇰🇷</span><span class="font-medium">한국어 (Korean)</span>
+                </option>
+                <option value="id" class="flex items-center space-x-2 hover:bg-blue-50 transition-all duration-200"
+                    selected>
+                    <span class="text-lg">🇮🇩</span><span class="font-medium">Indonesian (Default)</span>
+                </option>
+            </select>
+        </div>
+
+        <h1 id="title" class="text-2xl font-bold text-center text-gray-800 mt-4 fade-in">
+            <span class="inline-block mr-2"><i class="text-red-500 fas fa-heart"></i></span>
+            Untukmu, Cinta Shafa Oktaviana
+        </h1>
+        <p id="greeting" class="mt-4 text-gray-600 fade-in">
+            <span class="inline-block mr-2"><i class="fas fa-envelope"></i></span>
+            Hei, Okta! Gimana kabarnya? Semoga hari-harimu selalu menyenangkan dan penuh kebahagiaan, bukan stres ya
+            wkwkwk!
+        </p>
+
+        <p id="content" class="mt-2 text-gray-600 fade-in">
+            <span class="inline-block mr-2"><i class="fas fa-comment-dots"></i></span>
+            Aku cuma pengen ngobrol sedikit, ya. Jadi, setelah kamu bilang kalau kamu masih nganggep aku temen, aku jadi
+            mikir.
+        </p>
+
+        <p id="content-2" class="mt-2 text-gray-600 fade-in">
+            <span class="inline-block mr-2"><i class="fas fa-heart"></i></span>
+            Oh ya kamu sebenarnya kamu merasa gimana. Aku sayang banget sama kamu dan pengen hubungan ini jadi sesuatu
+            yang berarti buat kita berdua. Aku siap kok kalau kamu butuh waktu atau ruang, aku nggak akan buru-buru.
+        </p>
+
+        <p id="content-3" class="mt-2 text-gray-600 fade-in">
+            <span class="inline-block mr-2"><i class="fas fa-question-circle"></i></span>
+            Denger jawaban kamu, aku sih udah puas. Tapi ya tetep aja, aku tetap cinta kamu, gapapa jijik, kamu anggap
+            aja aku temen aja aku udah seneng kok.
+        </p>
+
+        <!-- New Paragraphs Added -->
+        <p id="content-4" class="mt-2 text-gray-600 fade-in">
+            <span class="inline-block mr-2"><i class="fas fa-thumbs-up"></i></span>
+            Terima kasih udah nerima aku apa adanya. Aku cuma pengen jadi yang terbaik buat kamu, biar kita bisa saling
+            mendukung dan pengertian yaa.
+        </p>
+
+        <p id="content-5" class="mt-2 text-gray-600 fade-in">
+            <span class="inline-block mr-2"><i class="fas fa-sad-tear"></i></span>
+            Aku sadar mungkin aku pernah bikin kamu capek atau nggak nyaman, dan aku minta maaf kalau itu terjadi. Aku
+            nggak berharap kamu selalu ngerti perasaanku, yang penting hubungan kita tetap terikat.
+        </p>
+
+        <p id="closing" class="mt-4 text-right text-gray-800 slide-in">
+            <span class="inline-block mr-2"><i class="fas fa-laugh"></i></span>
+            Terima kasih untuk segala perhatian dan masa seru yang kamu beri. Aku jadi kangen masa-masa kita
+            bareng<br><br><strong>- Falathin</strong>
+        </p>
+
+        <div class="mt-6 text-center fade-in-btn">
+            <button id="buttonText"
+                class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-all duration-200 ease-in-out">
+                Happy valentine Okta!!
+            </button>
+        </div>
+
+        <p class="mt-4 text-center text-gray-500 text-sm">
+            <span class="text-gray-400">Designed with <i class="text-red-500 fas fa-heart"></i> by</span>
+            <a href="https://www.linkedin.com/in/ibrahim-ahmad-falathin-b57243334/" target="_blank"
+                class="text-blue-500 font-semibold hover:text-blue-700 transition duration-300 ease-in-out transform hover:scale-105 hover:underline flex items-center justify-center space-x-2">
+                <span>Connect me on</span>
+                <span class="text-blue-600">LinkedIn</span>
+                <i class="fab fa-linkedin-in text-blue-600"></i>
+            </a>
+        </p>
+        <br>
+        <hr><br>
+        <div
+            class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-pink-400 to-purple-400 rounded-b-lg">
+        </div>
+        <br>
+        <hr>
+        <br>
+        <footer>
+
+        </footer>
+
+        <audio id="audioPlayer" autoplay loop>
+            <source src="Oh! Asmara （Instrumental）.mp4" type="audio/mp4">
+        </audio>
+
+        <!-- Mute/Unmute Button -->
+        <button id="muteButton"
+            class="bg-blue-500 text-white px-6 py-2 rounded-full shadow-lg hover:bg-blue-600 transition focus:outline-none">
+            🔈 Mute
+        </button>
+        <br><br>
+
+        <p class="text-gray-500" id="content-10">Mungkin browser Anda tidak mendukung mute audio (╥﹏╥)</p>
+
+        <script>
+            const audioPlayer = document.getElementById('audioPlayer');
+            const muteButton = document.getElementById('muteButton');
+
+            // Toggle mute/unmute
+            muteButton.addEventListener('click', () => {
+                if (audioPlayer.muted) {
+                    audioPlayer.muted = false;
+                    muteButton.textContent = '🔈 Mute';
+                } else {
+                    audioPlayer.muted = true;
+                    muteButton.textContent = '🔇 Unmute';
+                }
+            });
+        </script>
+
+        <br>
+
+        <footer>
+            <p class="mt-4 text-center text-gray-500 text-sm">
+                <span class="text-gray-400">Designed with <i class="text-red-500 fas fa-heart"></i> by</span>
+                <a href="https://www.instagram.com/p/DCJp7uuTbJg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                    target="_blank"
+                    class="text-blue-500 font-semibold hover:text-blue-700 transition duration-300 ease-in-out transform hover:scale-105 hover:underline flex items-center justify-center space-x-2">
+                    <span>Follow me on</span>
+                    <span class="text-blue-600">Instagram</span>
+                    <i class="fab fa-instagram text-blue-600"></i>
+                </a>
+                <span class="text-gray-400"> and like our internship post!</span>
+            </p>
+        </footer>
+        <!-- Modal Pop-Up dengan Tema Hujan -->
+        <div id="modal" class="fixed inset-0 bg-blue-900 bg-opacity-70 flex justify-center items-center hidden">
+            <div id="modalContent"
+                class="bg-white p-4 sm:p-6 rounded-lg shadow-xl max-w-lg w-full transform transition-all duration-300 ease-in-out relative overflow-hidden cursor-grab">
+                <!-- Efek Hujan -->
+                <div
+                    class="absolute inset-0 bg-[url('https://i.pinimg.com/736x/9e/59/45/9e59459cb08bb77da287584102ef9e4a.jpg')] opacity-30 pointer-events-none">
+                </div>
+
+                <!-- Tombol Tutup -->
+                <button id="closeModal"
+                    class="absolute top-2 right-2 text-blue-400 hover:text-blue-600 text-xl sm:text-2xl transition transform duration-200 hover:scale-125 z-10">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+
+                <!-- Header Modal -->
+                <h2 class="text-blue-600 font-bold text-lg sm:text-2xl mb-4 flex items-center z-10">
+                    <i class="fas fa-cloud-rain text-blue-400 text-2xl sm:text-3xl mr-2"></i> Lirik Lagu "Oh! Asmara~☂"
+                </h2>
+
+                <!-- Konten Lirik -->
+                <div
+                    class="bg-blue-50 p-4 rounded-lg shadow-inner relative z-10 overflow-y-auto max-h-[70vh] sm:max-h-[75vh]">
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        Dag-dig-dug hatiku<br>
+                        Saat aromamu lewati hidungku<br>
+                        Melotot mataku<br>
+                        Melihatmu lewat di depanku<br>
+                        Seorang biasa saja<br>
+                        Apa pantas 'tuk bersanding denganmu? (Denganmu)<br>
+                        Overthinking, tapi gak mau ambil pusing<br>
+                        Karena aku bukan kaum mendang-mending<br>
+                        Oh, asmara berdebar rasanya ku di dekatmu<br>
+                        Oh, asmara dengar bisikan cinta, lirih matamu<br>
+                        Hantam jantungku (oh, oh, asmara)
+                    </p>
+                    <p class="text-gray-600 mt-2 text-sm sm:text-base leading-relaxed">
+                        Hari ke sekian<br>
+                        Masih tak berhasil mendekatimu<br>
+                        Ugh, bagaimana melelehkan beku hatimu?<br>
+                        Ugh!<br>
+                        "Mending nyerah, dah?" Oh, tentu tidak (tidak)<br>
+                        Demi gapai impian, kita harus terus belajar<br>
+                        Belajar memahami bahasa cintamu<br>
+                        Ehe!<br>
+                        Oh, asmara berdebar rasanya (rasanya) ku di dekatmu (di dekatmu)<br>
+                        Oh, asmara dengar bisikan cinta, lirih matamu, hu-uh-uuh<br>
+                        Oh, asmara balas sinyal cinta ku, sekali saja<br>
+                        Oh, asmara tidak adakah ruang dalam hatimu, hu-uh-uuh<br>
+                        Tersisa untukku?
+                    </p>
+                    <p class="text-gray-600 mt-2 text-sm sm:text-base leading-relaxed">
+                        Sore itu<br>
+                        Tumben-tumbenan kau duluan<br>
+                        Yang datang menghampiriku (oh, asmara datanglah padaku)<br>
+                    </p>
+                    <p class="text-gray-600 mt-2 text-sm sm:text-base leading-relaxed">
+                        Oh, asmara berdebar rasanya ku di dekatmu<br>
+                        Oh, asmara dengar bisikan cinta, lirih matamu, hu-uh-uuh, hoo<br>
+                    </p>
+                    <p class="text-gray-600 mt-2 text-sm sm:text-base leading-relaxed">
+                        Oh, asmara berdebar rasanya (rasanya) ku di dekatmu<br>
+                        Oh, asmara dengar bisikan cinta, lirih matamu, hu-uh-uuh<br>
+                        Oh, asmara (berdebar rasanya), di-ba-ri-ba-ri-di, da-ra-da (ku di dekatmu)<br>
+                        Oh, asmara terjawab semua sudah teka-tekimu, hmm-mm (teka-tekimu)<br>
+                        Karena kini ku telah menjadi<br>
+                    </p>
+                    <p class="text-gray-600 mt-2 text-sm sm:text-base leading-relaxed">
+                        Milikmu (milikmu, milikmu, milikmu, milikmu)<br>
+                        Milikmu<br>
+                        Milikmu<br>
+                    </p>
+                </div>
+
+                <div class="text-center mt-4 sm:mt-6 relative z-10">
+                    <button id="lovecloseModal"
+                        class="flex items-center justify-center w-10 h-10 bg-red-500 text-white rounded-full shadow-lg hover:bg-red-600 transition-all duration-200">
+                        <i class="fas fa-heart text-lg"></i>
+                    </button>
+                </div>
+
+                <script>
+                    const lovecloseModal = document.getElementById('lovecloseModal');
+
+                    lovecloseModal.addEventListener('click', function () {
+                        Swal.fire({
+                            title: '好き好き好き!!',
+                            text: 'とても大好きでたまらない!!',
+                            icon: 'success', // Ikon berupa centang
+                            confirmButtonText: 'わかりました!',
+                            confirmButtonColor: '#f43f5e',
+                            backdrop: `rgba(0, 0, 0, 0.6)`,
+                        });
+                    });
+                </script>
+
+            </div>
+        </div>
+        <script>
+            const playButton = document.getElementById('playButton');
+            const modal = document.getElementById('modal');
+            const closeModal = document.getElementById('closeModal');
+
+            playButton.addEventListener('click', function () {
+                modal.classList.remove('hidden');
+            });
+
+            closeModal.addEventListener('click', function () {
+                modal.classList.add('hidden');
+            });
+
+            window.addEventListener('click', function (event) {
+                if (event.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('language').addEventListener('change', function () {
+            const lang = this.value;
+
+            const title = document.getElementById('title');
+            const greeting = document.getElementById('greeting');
+            const content = document.getElementById('content');
+            const content2 = document.getElementById('content-2');
+            const content3 = document.getElementById('content-3');
+            const content4 = document.getElementById('content-4');
+            const content5 = document.getElementById('content-5');
+            const closing = document.getElementById('closing');
+            const content10 = document.getElementById('content-10');
+
+            if (lang === 'su') {
+                title.innerHTML = '<i class="fas fa-heart text-red-500"></i> Pikeun Anjeun, Cinta Shafa Oktaviana!';
+                greeting.innerHTML = '<i class="fas fa-envelope"></i> Hei, Okta! Kumaha kabarna? Mugi-mugi dinten anjeun pinuh ku kabagjaan!';
+                content.innerHTML = '<i class="fas fa-comment-dots"></i> Aya nu hayang abdi omongkeun. Sanggeus anjeun nyebut abdi ngan rerencangan, abdi jadi mikir seueur!';
+                content2.innerHTML = '<i class="fas fa-heart"></i> Tapi ulah hariwang, abdi mah teu ambek! Abdi ngan hayang apal, naha haté anjeun sami sareng abdi?';
+                content3.innerHTML = '<i class="fas fa-question-circle"></i> Jujur, abdi hayang kajelasan. Mun urang saling bingung, moal jalan! Hayu urang ngobrol jujur!';
+                content4.innerHTML = '<i class="fas fa-thumbs-up"></i> Hatur nuhun tos nampi abdi sakumaha aya. Abdi bakal tetep usaha anu pangsaéna!';
+                content5.innerHTML = '<i class="fas fa-sad-tear"></i> Abdi terang anjeun capé, tapi abdi ogé capé ngantosan anjeun tanpa kabar!';
+                closing.innerHTML = '<i class="fas fa-laugh"></i> Pinuh ku cinta, Falathin!';
+            } else if (lang === 'en') {
+                title.innerHTML = '<i class="fas fa-heart text-red-500"></i> To You, My Love, Shafa Oktaviana!';
+                greeting.innerHTML = '<i class="fas fa-envelope"></i> Hey, Okta! How are you? Hope your days are full of happiness!';
+                content.innerHTML = '<i class="fas fa-comment-dots"></i> I just wanna talk a little. So, after you said we are just friends, I kept thinking…';
+                content2.innerHTML = '<i class="fas fa-heart"></i> But don’t worry, I’m not mad! I just wanna know if your heart feels the same as mine.';
+                content3.innerHTML = '<i class="fas fa-question-circle"></i> Honestly, I need clarity. If we keep hesitating, this won’t work! Let’s talk openly!';
+                content4.innerHTML = '<i class="fas fa-thumbs-up"></i> Thanks for accepting me as I am. I’ll always do my best for you!';
+                content5.innerHTML = '<i class="fas fa-sad-tear"></i> I know you’re tired, but waiting without knowing is exhausting too!';
+                closing.innerHTML = '<i class="fas fa-laugh"></i> Sending you all my love, Falathin!';
+            } else if (lang === 'jp') {
+                title.innerHTML = '<i class="fas fa-heart text-red-500"></i> 君へ、シャファ・オクタビアナ!';
+                greeting.innerHTML = '<i class="fas fa-envelope"></i> こんにちは、オクタ！元気ですか？幸せな日々を過ごしていますように！';
+                content.innerHTML = '<i class="fas fa-comment-dots"></i> ちょっと話したいことがあるんだ。君が「友達」だと言った後、ずっと考えていたよ。';
+                content2.innerHTML = '<i class="fas fa-heart"></i> でも心配しないで、怒ってないよ！君の気持ちが知りたいだけなんだ。';
+                content3.innerHTML = '<i class="fas fa-question-circle"></i> 正直に言うと、はっきりさせたい！迷っていたら進めないから、話し合おう！';
+                content4.innerHTML = '<i class="fas fa-thumbs-up"></i> 私を受け入れてくれてありがとう！君のために最善を尽くすよ！';
+                content5.innerHTML = '<i class="fas fa-sad-tear"></i> 君が疲れているのはわかる。でも、何もわからないまま待つのは辛いよ！';
+                closing.innerHTML = '<i class="fas fa-laugh"></i> たくさんの愛を込めて、ファラティン！';
+            } else if (lang === 'ko') {
+                title.innerHTML = '<i class="fas fa-heart text-red-500"></i> 너에게, 샤파 옥타비아나!';
+                greeting.innerHTML = '<i class="fas fa-envelope"></i> 안녕, 옥타! 잘 지내? 네 하루가 행복으로 가득하길 바래!';
+                content.innerHTML = '<i class="fas fa-comment-dots"></i> 하고 싶은 말이 있어. 네가 우리 그냥 친구라고 말한 후, 계속 생각했어.';
+                content2.innerHTML = '<i class="fas fa-heart"></i> 하지만 걱정하지 마! 난 화나지 않았어. 그냥 네 마음도 나와 같은지 알고 싶을 뿐이야.';
+                content3.innerHTML = '<i class="fas fa-question-circle"></i> 솔직히, 확실한 답을 알고 싶어. 서로 망설이면 아무것도 해결되지 않아. 우리 솔직하게 이야기하자!';
+                content4.innerHTML = '<i class="fas fa-thumbs-up"></i> 있는 그대로의 나를 받아줘서 고마워. 난 항상 최선을 다할게!';
+                content5.innerHTML = '<i class="fas fa-sad-tear"></i> 네가 피곤한 거 알아. 하지만 아무 소식 없이 기다리는 것도 너무 힘들어!';
+                closing.innerHTML = '<i class="fas fa-laugh"></i> 내 모든 사랑을 담아, 팔라틴!';
+            }
+
+
+            updateButtonText(lang);
+        });
+
+        function updateButtonText(lang) {
+            const buttonText = document.getElementById('buttonText');
+
+            if (lang === 'su') {
+                buttonText.innerHTML = "Selamat Hari Valentine parawan imut!!";
+            } else if (lang === 'en') {
+                buttonText.innerHTML = "Actually, I’m always thinking about you, Happy Valentine!!";
+            } else if (lang === 'jp') {
+                buttonText.innerHTML = "可愛いお嬢ちゃん、Happy Valentine!!";
+            }
+        }
+
+
+    </script>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>
